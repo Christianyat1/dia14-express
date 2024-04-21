@@ -3,6 +3,7 @@ import { pool } from './db.js'
 export const index = (req, res) => res.send('<h1>Bienvenido a mi API</h1>')
 export const getProducts = async (req, res) => {
   try {
+    console.log(req.query)
     const [productos] = await pool.query('SELECT * FROM product LIMIT 100')
     res.json(productos)
   } catch (error) {
